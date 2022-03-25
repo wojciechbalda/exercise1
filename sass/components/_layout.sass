@@ -1,5 +1,12 @@
 .wrapper
     display: grid
     grid-template-columns: 1fr
-    grid-template-rows: 8vh 92vh repeat(2, auto)
+    grid-template-rows: minmax(50px,8vh) 92vh repeat(2, auto)
+    &__slider
+        background: deepskyblue
+
+.content
+    padding: 0 5%
+    max-width: 1400px
+    margin: 0 auto
 

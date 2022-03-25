@@ -1,0 +1,134 @@
+.navbar
+    position: sticky
+    top: 0
+    background: $theme-color
+    &__content
+        display: flex
+        justify-content: space-between
+        height: 100%
+    &__logo-container
+        flex-basis: 30%
+    &__menu-container
+        position: absolute
+        left: -100%
+        top: 100%
+        background: $theme-color
+        +md("large")
+            position: static
+    &__hamburger-button
+        line-height: 8vh
+        color: white
+        font-size: 5rem
+        text-align: center
+        border: none
+        background: transparent
+        +md("large")
+            display: none
+        & .bi-x
+            display: none
+        &--active
+            & .bi-x 
+                display: block
+            & .bi-list
+                display: none
+
+
+
+// logo
+.logo-container
+    padding: 3px 0
+    &__logo
+        width: 100%
+        height: 100%
+        object-fit: contain
+        object-position: left
+
+//menu
+.menu-container
+    &--active
+        left: 0
+    &__menu
+        list-style: none
+
+.menu
+    +md("large")
+        display: flex
+        align-items: center
+        height: 100% 
+    &__item
+        +md("large")
+            height: 100%
+            display: flex
+    &__link
+        display: block
+        position: relative
+        padding: 10px 55px 10px 20px
+        font-size: 1.5rem
+        color: white
+        text-decoration: none
+        letter-spacing: 1px
+        text-transform: uppercase
+        transition: color .2s linear
+        +md("small")
+            font-size: 2rem
+        +md("medium")
+            padding-top: 20px
+            padding-bottom: 20px  
+        +md("large")
+            display: flex
+            align-items: center
+            font-size: 1.5rem
+            padding: 0 20px
+            height: 100%
+            &:hover
+                color: $primary-font-color
+    &__icon
+        position: absolute
+        right: 10%
+        transition: transform .3s
+        .dropdown-menu-container--active &
+            transform: rotate(180deg)
+        +md("large")
+            display: none
+
+.dropdown-menu
+    display: none
+    position: relative
+    list-style: none
+    &__link
+        @extend .menu__link
+        font-size: 1rem
+        padding-left: 30px
+        +md("small")
+            font-size: 1.5rem
+        +md("large")
+            text-align: center
+            padding-left: 20px
+            line-height: 2
+    &-container
+        position: relative
+        &--active > .dropdown-menu
+            display: block
+            +md("large")
+                display: none
+        +md("large")
+            &:hover .dropdown-menu
+                display: block
+    +md("large")
+        position: absolute
+        top: 100%
+        left: 0
+        min-width: 200px
+        border-radius: 7px
+        padding: 10px 0
+        background: darken($theme-color, 4%)
+        &::before
+            content: ""
+            position: absolute
+            left: 20px
+            bottom: 100%
+            width: 0
+            height: 0
+            border-left: 10px solid transparent
+            border-right: 10px solid transparent
+            border-bottom: 10px solid darken($theme-color, 4%)
