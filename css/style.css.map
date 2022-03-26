@@ -8,7 +8,9 @@
         "../sass/utils/_reset.sass",
         "../sass/components/_layout.sass",
         "../sass/components/_menu.sass",
-        "../sass/components/_slider.sass"
+        "../sass/components/_slider.sass",
+        "../sass/components/_main.sass",
+        "../sass/components/_main_places_section.sass"
     ],
     "names": [],
     "file": "style.css"
