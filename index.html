@@ -54,7 +54,69 @@
             </div>
         </nav>
         <header class="slider wrapper__slider">
-            <div class="slider__content content"></div>
+            <div class="slider__content content">
+                <div class="slider__slogan">The Best Tour Experience</div>
+                <h1 class="slider__title">Book Your Destination For <span class="slider__title-changing-element">
+                    <strong data-text="Cruise" class="isHidden active">Cruise</strong>
+                    <strong data-text="Hotels" class="isHidden">Hotels</strong>
+                    <strong data-text="Flights" class="isHidden">Flights</strong>
+                </span></h1>
+                <p class="slider__description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut harum at similique totam iure pariatur minima qui accusamus voluptas accusantium amet debitis, nobis, perspiciatis fuga velit porro. Possimus, unde a.</p>
+                <div class="slider__search-form search-form__container">
+                    <form action="" class="search-form">
+                        <ul class="search-form__list-of-options">
+                            <li class="search-form__item-list">
+                                <input type="radio" name="typeOfForm" checked class="search-form__option" value="Hotels" id="option1">
+                                <label for="option1">Hotels</label>
+                            </li>
+                            <li class="search-form__item-list">
+                                <input type="radio" name="typeOfForm" class="search-form__option" value="Tours" id="option2">
+                                <label for="option2">Tours</label>
+                            </li>
+                        </ul>
+                        <div class="search-form__form form-content">
+                            <div class="form-content__container">
+                                <label class="form-content__label">Search for Hotels</label>
+                                <div class="form-content__input-box">
+                                    <input type="text" class="form-content__input" placeholder="Search for Hotels">
+                                </div>
+                            </div>
+                            <div class="form-content__container">
+                                <label class="form-content__label">Check in</label>
+                                <div class="form-content__input-box">
+                                    <input type="date" class="form-content__input" placeholder="MM//DD/YY" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                </div>
+                            </div>
+                            <div class="form-content__container">
+                                <label class="form-content__label">Check out</label>
+                                <div class="form-content__input-box">
+                                    <input type="text" class="form-content__input" placeholder="MM/DD/YY" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                </div>
+                            </div>
+                            <div class="form-content__container">
+                                <div class="form-content__grid ">
+                                    <div class="form-content__element">
+                                        <label>Adults</label>
+                                        <input type="number">
+                                    </div>
+                                    <div class="form-content__element">
+                                        <label>Children</label>
+                                        <input type="number">
+                                    </div>
+                                    <div class="form-content__element">
+                                        <label>Rooms</label>
+                                        <input type="number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-content__container">
+                                <button type="submit" class="form-content__input form-content__input--submit"><i class="bi bi-search form-content__icon"></i>Search Now</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         </header>
         <main class="main wrapper__main">
             <section class="main__places"></section>
