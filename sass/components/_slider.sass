@@ -114,9 +114,12 @@
             cursor: pointer
     &__grid
         display: grid
-        grid-template-columns: repeat(3, 1fr)
         grid-template-rows: auto
         gap: 10%
+        &--tours
+             grid-template-columns: repeat(2, 1fr)
+        &--hotels
+             grid-template-columns: repeat(3, 1fr)
     &__element
         & label
             @extend .form-content__label

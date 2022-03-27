@@ -44,7 +44,6 @@ function changeForm()
     const renderForm = function(value)
     {
         let html;
-        console.log(value)
         switch (value)
         {
             case "Hotels" : html = `<div class="form-content__container">
@@ -66,7 +65,7 @@ function changeForm()
             </div>
         </div>
         <div class="form-content__container">
-            <div class="form-content__grid ">
+            <div class="form-content__grid form-content__grid--hotels">
                 <div class="form-content__element">
                     <label>Adults</label>
                     <input type="number">
@@ -86,35 +85,31 @@ function changeForm()
         </div>`
             break;
             case "Tours" : html = `<div class="form-content__container">
-            <label class="form-content__label">Search for Hotels</label>
+            <label class="form-content__label">Your destination</label>
             <div class="form-content__input-box">
-                <input type="text" class="form-content__input" placeholder="Search for Hotels">
+                <input type="text" class="form-content__input" placeholder="Enter a destination">
             </div>
         </div>
         <div class="form-content__container">
-            <label class="form-content__label">Check in</label>
+            <label class="form-content__label">Travel date</label>
             <div class="form-content__input-box">
                 <input type="date" class="form-content__input" placeholder="MM//DD/YY" onfocus="(this.type='date')" onblur="(this.type='text')">
             </div>
         </div>
         <div class="form-content__container">
-            <label class="form-content__label">Check out</label>
+            <label class="form-content__label">Return date</label>
             <div class="form-content__input-box">
                 <input type="text" class="form-content__input" placeholder="MM/DD/YY" onfocus="(this.type='date')" onblur="(this.type='text')">
             </div>
         </div>
         <div class="form-content__container">
-            <div class="form-content__grid ">
+            <div class="form-content__grid form-content__grid--tours">
                 <div class="form-content__element">
                     <label>Adults</label>
                     <input type="number">
                 </div>
                 <div class="form-content__element">
                     <label>Children</label>
-                    <input type="number">
-                </div>
-                <div class="form-content__element">
-                    <label>Rooms</label>
                     <input type="number">
                 </div>
             </div>
@@ -128,10 +123,8 @@ function changeForm()
     }
     let radioButtons = document.querySelectorAll('.search-form__option');
     let container = document.querySelector('.form-content');
-    console.log(radioButtons)
     radioButtons.forEach(radio => {
         radio.addEventListener("click", () => {
-            console.log("wyszlo")
             let result = renderForm(radio.value);
             container.innerHTML = result;
         })

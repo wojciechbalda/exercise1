@@ -1,0 +1,107 @@
+.places
+    padding: 8vh 0
+    text-align: center
+    &__title
+        text-align: center
+        line-height: 2
+        font-size: 2.2rem
+        &-span
+            color: $theme-color
+    &__description
+        text-align: center
+        color: $second-font-color
+        font-size: 1.4rem
+    &__grid-container
+        display: grid
+        width: 100%
+        grid-template-columns: repeat(1, minmax(120px, 1fr))
+        gap: 30px 20px
+        padding-top: 40px
+        +md("xsmall")
+            grid-template-columns: repeat(2, minmax(120px, 1fr))
+        +md("small")
+            grid-template-columns: repeat(3, minmax(120px, 1fr))
+        +md("large")
+            grid-template-columns: repeat(6, minmax(120px, 1fr))
+    &__card-box
+        padding: 10px
+        border-radius: 2px
+        background: #fff
+        box-shadow: 0px 0px 24px -2px rgba(188, 188, 198, 1)
+        +md("large")
+            &:hover .card__img
+                filter: brightness(0) invert(1)
+            &:hover .card__img-container::before
+                transform: scale(1)
+    &__link-show-more
+        position: relative
+        display: inline-block
+        border-radius: 4px
+        padding: 15px 30px
+        margin-top: 40px
+        text-decoration: none
+        color: white
+        font-size: 1.5rem
+        cursor: pointer
+        overflow: hidden
+        background: $theme-color
+        &::before
+            content: ""
+            position: absolute
+            left: -20%
+            top: 0
+            width: 8%
+            height: 100%
+            box-shadow: 0 0 10px #b0cde7
+            filter: blur(10px)
+            transform: skewX(12deg)  
+            transition: left .3s linear
+            background: #f3f3f3
+            opacity: 0.9
+        &:hover::before
+            left: 120%
+
+.card
+    height: 100%
+    &__img-container
+        position: relative
+        width: 100px
+        height: 100px
+        border-radius: 50%
+        margin: 0 auto
+        padding: 15px
+        background: lighten($theme-color, 10%)
+        &::before
+            content: ""
+            position: absolute
+            left: 0
+            top: 0
+            z-index: 1
+            height: 100%
+            width: 100%
+            border-radius: 50%
+            transform: scale(0)
+            transition: transform .4s
+            background: $theme-color
+    &__img
+        position: relative
+        z-index: 2
+        width: 100%
+        height: 100%
+        object-fit: contain
+        object-position: center
+        transition: filter .4s
+    &__title
+        font-size: 1.5rem
+        line-height: 2.5
+    &__link
+        display: inline-block
+        padding: 7px 15px
+        border-radius: 5px
+        color: $primary-font-color
+        background: lighten($theme-color, 10%)
+        text-decoration: none
+        font-size: 1.4rem
+        & span
+            font-weight: 700
+
