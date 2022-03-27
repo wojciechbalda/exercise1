@@ -1,0 +1,90 @@
+.the-best-offer
+    padding: 8vh 0
+    background: no-repeat center/cover 
+    color: white
+    text-align: center
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../../img/room640x433.jpg')
+    +md("small")
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../../img/room1280x866.jpg')
+    +md("xlarge")
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../../img/room1920x1300.jpg')
+    &__price
+        font-size: 1.8rem
+        line-height: 2
+        & span
+            color: $theme-color
+    &__name
+        margin-bottom: 2vh
+        font-size: 3rem
+        text-transform: capitalize
+    &__place-and-date-container
+        display: flex
+        justify-content: center
+    &__place, 
+        padding: 10px 20px
+        border-right: 2px solid black
+        & i, & p
+            display: inline-block
+            font-size: 1.3rem
+        & p
+            margin-left: 2px
+    &__date
+        @extend .the-best-offer__place
+        border-right: none
+    &__description
+        margin-top: 2vh
+        margin-bottom: 5vh
+        font-size: 1.5rem
+        line-height: 1.4
+    &__button
+        position: relative
+        display: inline-block
+        line-height: 2.5
+        border-radius: 5px
+        padding: 0 20px
+        color: white
+        font-size: 1.5rem
+        text-decoration: none
+        letter-spacing: 1px
+        text-transform: capitalize
+        background: $theme-color
+        overflow: hidden
+        &::before
+            content: ""
+            position: absolute
+            left: -20%
+            top: 0
+            width: 8%
+            height: 100%
+            box-shadow: 0 0 10px #b0cde7
+            filter: blur(10px)
+            transform: skewX(12deg)  
+            transition: left .3s linear
+            background: #f3f3f3
+            opacity: 0.9
+        &:hover::before
+            left: 120%
+
+
+.review
+    display: flex
+    justify-content: center
+    font-size: 1.3rem
+    &__container-for-stars
+        position: relative
+        margin-right: 10px
+        &::before 
+            content: "\f005" "\f005" "\f005" "\f005" "\f005"
+            content: "\f005" "\f005" "\f005" "\f005" "\f005"
+            font-family: "Font Awesome 5 Free"
+            font-weight: 900
+            color: #949393
+        &::after
+            @extend .review__container-for-stars::before
+            position: absolute
+            top: 0
+            left: 0
+            width: 70%
+            overflow: hidden
+            color: #ebee29
+        
