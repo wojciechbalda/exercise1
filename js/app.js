@@ -131,11 +131,57 @@ function changeForm()
     })
 }
 
+function chooseGallery()
+{
+    let buttons = Array.from(document.querySelectorAll(".our-destinations__button"));
+    let galleries = Array.from(document.querySelectorAll(".our-destinations__gallery"));
+    buttons.forEach((button) => {
+        button.addEventListener("click", function() {
+            let prevActiveButton = buttons.find(el => el.classList.contains("active"));
+            prevActiveButton.classList.remove("active");
+            button.classList.add("active");
+            let prevActiveGallery = galleries.find(gallery => gallery.classList.contains("active"));
+            prevActiveGallery.classList.remove("active");
+            let valueOfAttribute = button.getAttribute("data-gallery");
+            let appropriateGallery = galleries.find(gallery => gallery.getAttribute("data-gallery") === `${valueOfAttribute}`);
+            appropriateGallery.classList.add("active");
+        })
+    })
+}
+
 //start 
 
 setMenuHeight();
 textAnimation(2000);
 changeForm();
+chooseGallery();
+
+
+var swiper = new Swiper('.swiper', {
+    autoHeight: true,
+    slidesPerView: 1,
+    loop: true,
+    spaceBetween: 30,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      }
+  });
+
+let swiper_html = document.querySelector(".swiper");
+let swiper_container = document.querySelector(".swiper-container")
+// swiper_html.style.height = swiper_container.height;
+swiper_container.style.height = `${swiper_html.clientHeight}px`;
 
 window.addEventListener("resize", () => {
     setMenuHeight();

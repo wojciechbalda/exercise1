@@ -1,0 +1,32 @@
+.swiper-container
+    position: relative
+    width: 100%
+.swiper
+    position: absolute
+    left: 0%
+    width: 100%
+    display: flex
+    align-items: center
+    background: #fefefe
+.swiper-wrapper
+.swiper-slide
+    display: flex
+    align-items: center
+.swiper-button-next
+    display: none
+    border-radius: 50%
+    width: 40px
+    height: 40px
+    text-align: center
+    // transform: translateY(70%)
+    background: lighten($theme-color, 30%)
+    +md("large")
+        display: flex
+        align-content: center
+        justify-content: center
+    &::after
+        font-size: 2rem
+        font-weight: 700
+        color: $theme-color
+.swiper-button-prev
+    @extend .swiper-button-next

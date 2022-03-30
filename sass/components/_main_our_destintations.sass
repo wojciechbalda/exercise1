@@ -1,0 +1,171 @@
+.our-destinations
+    padding: 8vh 0
+    &__title
+      font-size: 3.5rem
+      color: #000
+      text-align: center
+      & span
+        color: $theme-color
+    &__description
+        padding: 10px 0 
+        line-height: 1.5
+        color: $second-font-color
+        font-size: 1.4rem
+        text-align: center
+    &__button-container
+      display: flex
+      justify-content: center
+    &__button
+      position: relative
+      display: inline-block
+      // width: 50%
+      border-radius: 5px
+      border: none
+      padding: 0 10px
+      line-height: 2.45
+      // margin-top: 10%
+      text-decoration: none
+      color: #000
+      font-size: 1.5rem
+      text-align: center
+      cursor: pointer
+      overflow: hidden
+      background: lighten($theme-color, 30%)
+      +md("small")
+        padding: 0 20px
+      &:nth-child(1)
+        margin-right: 10px
+      &.active
+        color: white
+        background: $theme-color
+      &::before
+        content: ""
+        position: absolute
+        left: -20%
+        top: 0
+        width: 8%
+        height: 100%
+        box-shadow: 0 0 10px #b0cde7
+        filter: blur(10px)
+        transform: skewX(12deg)  
+        transition: left .3s linear
+        background: #f3f3f3
+        opacity: 0.9
+      &:hover::before
+        left: 120%
+    &__gallery
+      display: none
+      width: 100%
+      grid-template-columns: repeat(1, 1fr)
+      gap: 25px
+      padding-top: 40px
+      +md("small")
+          grid-template-columns: repeat(2, 1fr)
+      +md("large")
+          grid-template-columns: repeat(3, 1fr)
+      &.active
+        display: grid
+    &__container
+      position: relative
+      aspect-ratio: 1/0.9
+      overflow: hidden
+      &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background: #000
+        opacity: 0.3
+    &__img
+      object-fit: cover
+      object-position: center
+      width: 100%
+      height: 100%
+    &__content-before-hover
+      display: flex
+      flex-direction: column
+      justify-content: space-around
+      position: absolute
+      bottom: 0
+      left: 0
+      top: 40%
+      width: 100%
+      padding: 7%
+      padding-top: 0
+      color: #fff
+      transition: opacity .5s 
+      .our-destinations__container:hover &
+        opacity: 0
+    &__content-after-hover
+      display: flex
+      flex-direction: column
+      // justify-content: space-between
+      position: absolute
+      bottom: 0
+      left: 0
+      top: 0%
+      width: 100%
+      padding: 7%
+      // padding-top: 10%
+      color: #fff
+      background: rgba(0, 0, 0, 0.7)
+      opacity: 0
+      transition: opacity .5s
+      z-index: 2
+      .our-destinations__container:hover &
+          opacity: 1
+    &__offer-title
+      line-height: 2
+      font-size: 2rem
+      border-bottom: 2px solid #fff
+    &__offer-price-and-rating
+        margin-top: 5%
+        display: flex
+        // width: 100%
+        justify-content: space-between
+    &__price
+      font-size: 1.3rem
+      & span
+        font-weight: 700
+        font-size: 1.5rem
+    &__review
+      .review__container-for-stars
+        &::after 
+          width: 100%
+    &__offer-description
+      margin-top: 5%
+      font-size: 1.3rem
+      text-align: center
+    &__offer-link
+      position: relative
+      display: inline-block
+      width: 70%
+      border-radius: 4px
+      padding: 0 20px
+      line-height: 2
+      margin-top: 10%
+      text-decoration: none
+      color: white
+      font-size: 1.3rem
+      text-align: center
+      cursor: pointer
+      overflow: hidden
+      align-self: center
+      background: $theme-color
+      &::before
+        content: ""
+        position: absolute
+        left: -20%
+        top: 0
+        width: 8%
+        height: 100%
+        box-shadow: 0 0 10px #b0cde7
+        filter: blur(10px)
+        transform: skewX(12deg)  
+        transition: left .3s linear
+        background: #f3f3f3
+        opacity: 0.9
+      &:hover::before
+        left: 120%
