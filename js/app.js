@@ -1,7 +1,9 @@
 //global variables
 let menu = document.querySelector('.menu-container'), navbar = document.querySelector('.navbar');
 let textToAnimation = Array.from(document.querySelectorAll(".isHidden"))
-
+const counters = document.querySelectorAll('.stats__number');
+const stats = document.querySelector(".stats");
+let isExecuted = false
 //functions
 
 function setMenuHeight()
@@ -149,13 +151,32 @@ function chooseGallery()
     })
 }
 
+function startCounter(element, speed = 500)
+{
+        let number = Number(element.getAttribute("data-number")), currentValue = Number(element.innerHTML);
+        const increaseCounterNumber = function()
+        {
+            if (number - currentValue < speed)
+            {
+                currentValue += number % speed;
+                element.textContent = currentValue;
+            }
+            else if (number - currentValue != 0)
+            {
+                currentValue += speed;
+                element.textContent = currentValue;
+                setTimeout(increaseCounterNumber, 50);
+            }
+        } 
+        increaseCounterNumber()
+}
+
 //start 
 
 setMenuHeight();
 textAnimation(2000);
 changeForm();
 chooseGallery();
-
 
 var swiper = new Swiper('.swiper', {
     autoHeight: true,
@@ -185,4 +206,17 @@ swiper_container.style.height = `${swiper_html.clientHeight}px`;
 
 window.addEventListener("resize", () => {
     setMenuHeight();
+})
+
+window.addEventListener("scroll", () => {
+    const scroll = window.scrollY;
+    if (scroll + window.innerHeight > stats.offsetTop && !isExecuted)
+    {
+        counters.forEach(couter => startCounter(couter));
+        isExecuted = true;
+    } else if (scroll + window.innerHeight < stats.offsetTop && isExecuted)
+    {
+        counters.forEach(couter => couter.textContent = 0);
+        isExecuted = false;
+    }
 })
